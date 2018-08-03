@@ -39,7 +39,10 @@
   overflow: auto;
   max-height: 100vh;
 }
-
 .scrollable-list {
   overflow: auto;
+}
+
+.git-card-content {
+  font-size: larger;
 }

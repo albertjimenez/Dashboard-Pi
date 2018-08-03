@@ -18,6 +18,7 @@ import {AppComponent} from './app.component';
 import {MaterialSidenavComponent} from './material-sidenav/material-sidenav.component';
 import {LayoutModule} from '@angular/cdk/layout';
 import {MaterialDashboardComponent} from './material-dashboard/material-dashboard.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {MaterialDashboardComponent} from './material-dashboard/material-dashboar
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatTooltipModule,
     MatButtonModule,
     LayoutModule,

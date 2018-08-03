@@ -1,15 +1,30 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {HardwareService} from '../services/hardware.service';
+import {GitService, PushEventData} from '../services/git.service';
 
 @Component({
   selector: 'app-material-dashboard',
   templateUrl: './material-dashboard.component.html',
-  styleUrls: ['./material-dashboard.component.css']
+  styleUrls: ['./material-dashboard.component.css'],
+  providers: [HardwareService, GitService]
 })
-export class MaterialDashboardComponent {
+export class MaterialDashboardComponent implements OnInit {
   thresholdConfig = {
     '0': {color: 'green'},
     '40': {color: 'orange'},
     '75.5': {color: 'red'}
   };
-  constructor() {}
+
+  cpuInfo = 0;
+  hddInfo = 0;
+  pushEventData: PushEventData = null;
+
+  constructor(private hardwareService: HardwareService, private gitService: GitService) {
+  }
+
+  ngOnInit() {
+    this.cpuInfo = this.hardwareService.getCPUInfo();
+    this.hddInfo = this.hardwareService.getHDDInfo();
+    this.pushEventData = this.gitService.getLastPushUpdate();
+  }
 }
