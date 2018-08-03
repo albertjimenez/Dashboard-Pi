@@ -1,5 +1,5 @@
 <div class="grid-container">
-  <mat-grid-list cols="2" rowHeight="350px">
+  <mat-grid-list cols="2" rowHeight="300px">
 
     <!--First tile-->
     <mat-grid-tile colspan="1" rowspan="1">
@@ -10,71 +10,85 @@
           CPU
         </mat-card-title>
       </mat-card-header>
-      <mat-card-content class="dashboard-card-content cpu-card-content">
-        <div>32%</div>
+      <mat-card-content class="dashboard-card-content">
+        <ngx-gauge [type]="'semi'"
+                   [value]="43"
+                   [max]="100"
+                   [min]="0"
+                   [label]="'%'"
+                   [thresholds]="thresholdConfig">
+        </ngx-gauge>
       </mat-card-content>
     </mat-card>
     </mat-grid-tile>
 
     <!--Second tile-->
     <mat-grid-tile colspan="1" rowspan="1">
-    <mat-card class="dashboard-card">
+      <mat-card class="dashboard-card hdd-card">
       <mat-card-header>
+        <img src="../../assets/hard-drive.svg" mat-card-avatar height="32" width="32">
         <mat-card-title>
           Disk space
-          <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-            <mat-icon>more_vert</mat-icon>
-          </button>
-          <mat-menu #menu="matMenu" xPosition="before">
-            <button mat-menu-item>Expand</button>
-            <button mat-menu-item>Remove</button>
-          </mat-menu>
         </mat-card-title>
       </mat-card-header>
       <mat-card-content class="dashboard-card-content">
-        <div>Card Content Here</div>
+        <ngx-gauge [type]="'arch'"
+                   [value]="12"
+                   [max]="32"
+                   [min]="0"
+                   [label]="'GB'"
+                   [thresholds]="thresholdConfig">
+        </ngx-gauge>
       </mat-card-content>
     </mat-card>
     </mat-grid-tile>
 
     <!--Third tile-->
     <mat-grid-tile colspan="1" rowspan="1">
-    <mat-card class="dashboard-card">
+      <mat-card class="dashboard-card git-card">
       <mat-card-header>
+        <img src="../../assets/github.svg" mat-card-avatar width="32" height="32">
         <mat-card-title>
-          Push events
-          <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-            <mat-icon>more_vert</mat-icon>
-          </button>
-          <mat-menu #menu="matMenu" xPosition="before">
-            <button mat-menu-item>Expand</button>
-            <button mat-menu-item>Remove</button>
-          </mat-menu>
+          Git Push events
         </mat-card-title>
       </mat-card-header>
       <mat-card-content class="dashboard-card-content">
-        <div>Card Content Here</div>
+        <ngx-gauge [type]="'semi'"
+                   [value]="9"
+                   [min]="0"
+                   thick="10"
+                   [label]="'Pushes'">
+        </ngx-gauge>
       </mat-card-content>
     </mat-card>
     </mat-grid-tile>
 
     <!--4 tile-->
     <mat-grid-tile colspan="1" rowspan="1">
-    <mat-card class="dashboard-card">
+      <mat-card class="dashboard-card users-card">
       <mat-card-header>
+        <img src="../../assets/user.svg" mat-card-avatar height="32" width="32">
         <mat-card-title>
           Users
-          <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-            <mat-icon>more_vert</mat-icon>
-          </button>
-          <mat-menu #menu="matMenu" xPosition="before">
-            <button mat-menu-item>Expand</button>
-            <button mat-menu-item>Remove</button>
-          </mat-menu>
         </mat-card-title>
       </mat-card-header>
-      <mat-card-content class="dashboard-card-content">
-        <div>Card Content Here</div>
+        <mat-card-content class="dashboard-card-content users-card-content">
+          <mat-list role="list">
+            <mat-list-item role="listitem">
+              <div>
+                <img matListAvatar src="https://avatars3.githubusercontent.com/u/12547680?s=460&v=4">
+                <span>Albert Jiménez</span>
+              </div>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              <div>
+                <img matListAvatar src="https://avatars2.githubusercontent.com/u/17596372?s=460&v=4" alt="">
+                <span>
+              Pablo Berbel
+            </span>
+              </div>
+            </mat-list-item>
+          </mat-list>
       </mat-card-content>
     </mat-card>
     </mat-grid-tile>
