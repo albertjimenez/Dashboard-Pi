@@ -19,3 +19,9 @@
 .dashboard-card-content {
   text-align: center;
 }
+.cpu-card {
+  background-color: #fb8d79;
+}
+.cpu-card-content {
+  font-size: large;
+}
