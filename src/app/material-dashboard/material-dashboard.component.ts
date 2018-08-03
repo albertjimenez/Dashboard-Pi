@@ -24,7 +24,7 @@ export class MaterialDashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.reloadCPU(); // TODO setInterval
+    setInterval(() => this.reloadCPU(), 4000);
     this.reloadHDD();
     this.pushEventData = this.gitService.getLastPushUpdate();
   }
@@ -40,7 +40,6 @@ export class MaterialDashboardComponent implements OnInit {
       data => {
         this.maxSpace = data.valueOf()['total'];
         this.currentSpace = data.valueOf()['free_space'];
-      }
-    );
+      });
   }
 }
