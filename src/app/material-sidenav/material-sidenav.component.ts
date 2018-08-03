@@ -14,7 +14,7 @@ export class MaterialSidenavComponent {
     .pipe(
       map(result => result.matches)
     );
-    
+
   constructor(private breakpointObserver: BreakpointObserver) {}
-  
+
   }
