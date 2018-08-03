@@ -16,15 +16,31 @@ export class MaterialDashboardComponent implements OnInit {
   };
 
   cpuInfo = 0;
-  hddInfo = 0;
+  maxSpace = 0;
+  currentSpace = 0;
   pushEventData: PushEventData = null;
 
   constructor(private hardwareService: HardwareService, private gitService: GitService) {
   }
 
   ngOnInit() {
-    this.cpuInfo = this.hardwareService.getCPUInfo();
-    this.hddInfo = this.hardwareService.getHDDInfo();
+    this.reloadCPU(); // TODO setInterval
+    this.reloadHDD();
     this.pushEventData = this.gitService.getLastPushUpdate();
+  }
+
+  reloadCPU() {
+    this.hardwareService.getCPUInfo().subscribe(
+      data => this.cpuInfo = data.valueOf()['cpu']
+    );
+  }
+
+  reloadHDD() {
+    this.hardwareService.getHDDInfo().subscribe(
+      data => {
+        this.maxSpace = data.valueOf()['total'];
+        this.currentSpace = data.valueOf()['free_space'];
+      }
+    );
   }
 }

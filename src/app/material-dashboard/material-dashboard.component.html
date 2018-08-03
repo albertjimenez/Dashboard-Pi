@@ -33,13 +33,14 @@
       </mat-card-header>
       <mat-card-content class="dashboard-card-content">
         <ngx-gauge [type]="'arch'"
-                   [value]="hddInfo"
-                   [max]="32"
+                   [value]="currentSpace"
+                   [max]="maxSpace"
                    [min]="0"
                    [label]="'GB'"
                    [thresholds]="thresholdConfig">
         </ngx-gauge>
-        <button mat-mini-fab matTooltip="Update Disk Space value" style="background-color: #1cff87">
+        <button mat-mini-fab matTooltip="Update Disk Space value" style="background-color: #1cff87"
+                (click)="reloadHDD()">
           <mat-icon>
             update
           </mat-icon>

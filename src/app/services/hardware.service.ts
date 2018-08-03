@@ -1,5 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {CPU_ROUTE, HDD_ROUTE} from '../API';
+import {Observable} from 'rxjs/index';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +11,11 @@ export class HardwareService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getCPUInfo(): number {
-    return 1.0;
+  getCPUInfo(): Observable<Object> {
+    return this.httpClient.get(CPU_ROUTE);
   }
 
-  getHDDInfo(): number {
-    return 4.2;
+  getHDDInfo(): Observable<Object> {
+    return this.httpClient.get(HDD_ROUTE);
   }
 }
