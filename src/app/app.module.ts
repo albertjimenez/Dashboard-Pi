@@ -8,7 +8,8 @@ import {
   MatListModule,
   MatMenuModule,
   MatSidenavModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatTooltipModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgxGaugeModule} from 'ngx-gauge';
@@ -27,6 +28,7 @@ import {MaterialDashboardComponent} from './material-dashboard/material-dashboar
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    MatTooltipModule,
     MatButtonModule,
     LayoutModule,
     MatToolbarModule,

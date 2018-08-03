@@ -39,7 +39,13 @@
                    [label]="'GB'"
                    [thresholds]="thresholdConfig">
         </ngx-gauge>
+        <button mat-mini-fab matTooltip="Update Disk Space value">
+          <mat-icon>
+            update
+          </mat-icon>
+        </button>
       </mat-card-content>
+
     </mat-card>
     </mat-grid-tile>
 
@@ -65,7 +71,7 @@
 
     <!--4 tile-->
     <mat-grid-tile colspan="1" rowspan="1">
-      <mat-card class="dashboard-card users-card">
+      <mat-card class="dashboard-card users-card scrollable-list">
       <mat-card-header>
         <img src="../../assets/user.svg" mat-card-avatar height="32" width="32">
         <mat-card-title>
@@ -74,6 +80,18 @@
       </mat-card-header>
         <mat-card-content class="dashboard-card-content users-card-content">
           <mat-list role="list">
+            <mat-list-item role="listitem">
+              <div>
+                <img matListAvatar src="https://avatars3.githubusercontent.com/u/12547680?s=460&v=4">
+                <span>Albert Jiménez</span>
+              </div>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              <div>
+                <img matListAvatar src="https://avatars3.githubusercontent.com/u/12547680?s=460&v=4">
+                <span>Albert Jiménez</span>
+              </div>
+            </mat-list-item>
             <mat-list-item role="listitem">
               <div>
                 <img matListAvatar src="https://avatars3.githubusercontent.com/u/12547680?s=460&v=4">
